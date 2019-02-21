@@ -52,6 +52,9 @@ $(".{{ column_class_editable_selector|raw }}").editable({
     {% if editable_options.format is defined %}
     format: '{{ editable_options.format }}',
     {% endif %}
+    {% if editable_options.template is defined %}
+    template: '{{ editable_options.template }}',
+    {% endif %}
     {% if editable_options.viewFormat is defined and editable_options.viewFormat is not same as(null) %}
     viewformat: '{{ editable_options.viewFormat }}',
     {% endif %}
