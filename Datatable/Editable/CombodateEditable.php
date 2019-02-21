@@ -28,6 +28,13 @@ class CombodateEditable extends AbstractEditable
     protected $format;
 
     /**
+     * Template of the combo box
+     *
+     * @var string
+     */
+    protected $template;
+    
+    /**
      * Format used for displaying date. If not specified equals to $format.
      *
      * @var null|string
@@ -104,6 +111,7 @@ class CombodateEditable extends AbstractEditable
 
         $resolver->setDefaults(array(
             'format' => 'YYYY-MM-DD',
+            'template' => 'YYYY-MM-DD',
             'view_format' => null,
             'min_year' => 1970,
             'max_year' => 2035,
@@ -114,6 +122,7 @@ class CombodateEditable extends AbstractEditable
 
         $resolver->setAllowedTypes('format', 'string');
         $resolver->setAllowedTypes('view_format', array('string', 'null'));
+        $resolver->setAllowedTypes('template', array('string', 'null'));
         $resolver->setAllowedTypes('min_year', 'int');
         $resolver->setAllowedTypes('max_year', 'int');
         $resolver->setAllowedTypes('minute_step', 'int');
@@ -151,6 +160,30 @@ class CombodateEditable extends AbstractEditable
         return $this;
     }
 
+    /**
+     * Get template.
+     *
+     * @return string
+     */
+    public function getTemplate()
+    {
+        return $this->template;
+    }
+    
+    /**
+     * Set template.
+     *
+     * @param string $template
+     *
+     * @return $this
+     */
+    public function setTemplate($template)
+    {
+        $this->template = $template;
+        
+        return $this;
+    }
+    
     /**
      * Get viewFormat.
      *
